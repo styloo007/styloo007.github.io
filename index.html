@@ -14,160 +14,281 @@
 
 <div class="grain"></div>
 
-<header class="hero" id="top">
-  <div class="wrap">
-    <div class="waveform" aria-hidden="true">
-      <span style="--h:22%"></span><span style="--h:38%"></span><span style="--h:19%"></span>
-      <span style="--h:55%"></span><span style="--h:71%"></span><span style="--h:44%"></span>
-      <span style="--h:63%"></span><span style="--h:91%"></span><span style="--h:78%"></span>
-      <span style="--h:52%"></span><span style="--h:34%"></span><span style="--h:60%"></span>
-      <span style="--h:85%"></span><span style="--h:97%"></span><span style="--h:74%"></span>
-      <span style="--h:48%"></span><span style="--h:29%"></span><span style="--h:41%"></span>
-      <span style="--h:66%"></span><span style="--h:80%"></span><span style="--h:56%"></span>
-      <span style="--h:33%"></span><span style="--h:20%"></span><span style="--h:45%"></span>
-      <span style="--h:68%"></span><span style="--h:88%"></span><span style="--h:95%"></span>
-      <span style="--h:70%"></span><span style="--h:50%"></span><span style="--h:31%"></span>
-      <span style="--h:18%"></span><span style="--h:37%"></span><span style="--h:58%"></span>
-      <span style="--h:76%"></span><span style="--h:92%"></span><span style="--h:82%"></span>
-      <span style="--h:61%"></span><span style="--h:40%"></span><span style="--h:25%"></span>
-      <span style="--h:16%"></span><span style="--h:30%"></span><span style="--h:47%"></span>
-      <span style="--h:64%"></span><span style="--h:83%"></span><span style="--h:96%"></span>
-      <span style="--h:72%"></span><span style="--h:49%"></span><span style="--h:24%"></span>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="#top" class="wordmark">S.A.</a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#stack">Stack</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
     </div>
+    <a class="btn-resume" href="assets/Shashank_Agasimani_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+  </div>
+</nav>
 
-    <p class="eyebrow">Bengaluru, India</p>
-    <h1>Shashank<br>Agasimani</h1>
-    <p class="role">Forward deployed engineer, building voice AI systems for regulated industries.</p>
-    <p class="lede">I take voice AI systems from a client's first requirement to production &mdash; designing conversation flows, integrating with live infrastructure, and tuning performance through evals and A/B testing.</p>
-
-    <nav class="links">
-      <a href="mailto:shashankagasimani2@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/shashankagasimani/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/styloo007/" target="_blank" rel="noopener">GitHub</a>
-      <a href="assets/Shashank_Agasimani_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
-    </nav>
+<header class="hero" id="top">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap wrap-wide hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow mono">Bengaluru, India — Forward Deployed Engineer</p>
+      <h1 class="reveal">Voice AI that survives<br>contact with production.</h1>
+      <p class="lede reveal">I take voice AI systems from a client's first requirement to production — conversation flows, live infrastructure integration, and the evals that keep them accurate under regulation and scale.</p>
+      <nav class="links reveal">
+        <a href="mailto:shashankagasimani2@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/shashankagasimani/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/styloo007/" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <canvas id="wave" width="440" height="260"></canvas>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
+<section class="stats-band reveal" aria-label="Impact at a glance">
+  <div class="wrap wrap-wide stats-grid">
+    <div class="stat">
+      <p class="stat-num" data-target="45" data-suffix="%">0%</p>
+      <p class="stat-label">higher conversion vs.<br>human agents</p>
+    </div>
+    <div class="stat">
+      <p class="stat-num" data-target="95" data-suffix="%">0%</p>
+      <p class="stat-label">peak accuracy on<br>RAG-based retrieval</p>
+    </div>
+    <div class="stat">
+      <p class="stat-num" data-target="80" data-suffix="%">0%</p>
+      <p class="stat-label">less processing time,<br>SKU extraction</p>
+    </div>
+    <div class="stat">
+      <p class="stat-num" data-target="5" data-suffix="&times;">0&times;</p>
+      <p class="stat-label">image-pipeline<br>throughput</p>
+    </div>
+  </div>
+</section>
 
-  <section id="experience" aria-labelledby="experience-h">
-    <h2 id="experience-h"><span class="mark"></span>Experience</h2>
+<main>
 
-    <ol class="timeline">
+  <section id="work" class="wrap wrap-wide">
+    <h2 class="reveal"><span class="mark"></span>Selected work</h2>
+
+    <article class="case reveal">
+      <div class="case-head">
+        <p class="case-kicker mono">Arrowhead &middot; Oct 2025 — Present</p>
+        <h3>Voice AI for regulated, high-stakes calls</h3>
+        <p class="case-summary">Banks, insurers, and wealth platforms can't hand a customer call to a model that might improvise. I build deterministic, state-driven voice agents — with the conversation logic, latency budget, and live infrastructure to run those calls in production.</p>
+      </div>
+
+      <div class="case-diagram" role="img" aria-label="Pipeline: caller connects over telephony, speech is transcribed, routed through a deterministic conversation engine, synthesized back to speech, and either resolved or handed to a human agent via CRM">
+        <svg viewBox="0 0 900 140" xmlns="http://www.w3.org/2000/svg">
+          <g class="flow-line">
+            <line x1="90" y1="70" x2="810" y2="70"/>
+          </g>
+          <g class="nodes" font-family="IBM Plex Mono, monospace" font-size="13">
+            <g class="node"><rect x="10" y="40" width="140" height="60" rx="4"/><text x="80" y="65" text-anchor="middle">Caller</text><text x="80" y="83" text-anchor="middle" class="sub">SIP / DID</text></g>
+            <g class="node"><rect x="195" y="40" width="140" height="60" rx="4"/><text x="265" y="65" text-anchor="middle">Speech to text</text><text x="265" y="83" text-anchor="middle" class="sub">Deepgram / Whisper</text></g>
+            <g class="node accent-node"><rect x="380" y="35" width="150" height="70" rx="4"/><text x="455" y="60" text-anchor="middle">Conversation</text><text x="455" y="76" text-anchor="middle">engine</text><text x="455" y="94" text-anchor="middle" class="sub">state flow + prompts</text></g>
+            <g class="node"><rect x="570" y="40" width="140" height="60" rx="4"/><text x="640" y="65" text-anchor="middle">Text to speech</text><text x="640" y="83" text-anchor="middle" class="sub">ElevenLabs / Cartesia</text></g>
+            <g class="node"><rect x="750" y="40" width="140" height="60" rx="4"/><text x="820" y="65" text-anchor="middle">CRM / handoff</text><text x="820" y="83" text-anchor="middle" class="sub">webhook, live agent</text></g>
+          </g>
+        </svg>
+      </div>
+
+      <ul class="case-points">
+        <li>Deterministic, state-driven flows and structured prompts for BFSI, insurance, fintech, wealthtech, and real estate clients — reaching up to <strong>45% higher conversion</strong> than human agents.</li>
+        <li>Integrated with client CRMs, telephony, webhooks, and internal APIs, including live hand-off to a human agent over SIP.</li>
+        <li>Audited calls and transcripts against baseline metrics, diagnosed regressions in objection-handling and latency, and ran A/B tests across flow versions.</li>
+        <li>Traveled onsite to gather requirements directly from clients and translate their workflows into deployable conversation flows.</li>
+      </ul>
+
+      <div class="chips case-tags">
+        <span>Deterministic flows</span><span>SIP / telephony</span><span>Live QA & evals</span><span>Regional-language QA</span>
+      </div>
+    </article>
+
+    <article class="case reveal">
+      <div class="case-head">
+        <p class="case-kicker mono">AntLabs &middot; May 2024 — Oct 2025</p>
+        <h3>High-precision RAG for complex PDF queries</h3>
+        <p class="case-summary">Legacy keyword search couldn't reliably answer questions against dense, unstructured PDFs. I designed a retrieval pipeline built for precision, then re-used the same systems instinct on two adjacent bottlenecks: catalog data entry and image throughput.</p>
+      </div>
+
+      <div class="case-diagram" role="img" aria-label="Pipeline: PDF documents are chunked and embedded, stored in a vector database, retrieved on query, and passed to the LLM for a grounded answer">
+        <svg viewBox="0 0 900 140" xmlns="http://www.w3.org/2000/svg">
+          <g class="flow-line">
+            <line x1="90" y1="70" x2="810" y2="70"/>
+          </g>
+          <g class="nodes" font-family="IBM Plex Mono, monospace" font-size="13">
+            <g class="node"><rect x="10" y="40" width="140" height="60" rx="4"/><text x="80" y="65" text-anchor="middle">PDF corpus</text><text x="80" y="83" text-anchor="middle" class="sub">client documents</text></g>
+            <g class="node"><rect x="195" y="40" width="140" height="60" rx="4"/><text x="265" y="65" text-anchor="middle">Chunk + embed</text><text x="265" y="83" text-anchor="middle" class="sub">LangChain</text></g>
+            <g class="node accent-node"><rect x="380" y="35" width="150" height="70" rx="4"/><text x="455" y="60" text-anchor="middle">Vector store</text><text x="455" y="76" text-anchor="middle">+ retrieval</text><text x="455" y="94" text-anchor="middle" class="sub">Pinecone / ChromaDB</text></g>
+            <g class="node"><rect x="570" y="40" width="140" height="60" rx="4"/><text x="640" y="65" text-anchor="middle">LLM answer</text><text x="640" y="83" text-anchor="middle" class="sub">grounded response</text></g>
+            <g class="node"><rect x="750" y="40" width="140" height="60" rx="4"/><text x="820" y="65" text-anchor="middle">90&ndash;95%</text><text x="820" y="83" text-anchor="middle" class="sub">query accuracy</text></g>
+          </g>
+        </svg>
+      </div>
+
+      <ul class="case-points">
+        <li>Reached <strong>90&ndash;95% accuracy</strong>, a 65% improvement over the legacy keyword system.</li>
+        <li>Led three AI projects end to end &mdash; PRDs, system architecture, hiring, vendor negotiation, and client delivery.</li>
+        <li>Automated SKU attribute extraction with the Gemini API, OCR, and Playwright, cutting processing time by 80%.</li>
+        <li>Designed an AWS SQS pipeline for real-time image processing, increasing throughput 5&times;.</li>
+      </ul>
+
+      <div class="chips case-tags">
+        <span>RAG</span><span>Vector search</span><span>OCR automation</span><span>AWS SQS</span>
+      </div>
+    </article>
+  </section>
+
+  <section id="process" class="wrap wrap-wide">
+    <h2 class="reveal"><span class="mark"></span>How I work</h2>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <p class="process-num mono">01</p>
+        <h3>Discover onsite</h3>
+        <p>Sit with the client's team, watch the real workflow, and find where a scripted human process becomes a deterministic conversation flow.</p>
+      </div>
+      <div class="process-step reveal">
+        <p class="process-num mono">02</p>
+        <h3>Design the flow</h3>
+        <p>State-driven conversation logic and structured prompts — built for the failure modes of a regulated, high-stakes call, not a demo.</p>
+      </div>
+      <div class="process-step reveal">
+        <p class="process-num mono">03</p>
+        <h3>Integrate live</h3>
+        <p>Wire into the client's actual stack — CRM, telephony, webhooks, internal APIs — including hand-off to a human agent when needed.</p>
+      </div>
+      <div class="process-step reveal">
+        <p class="process-num mono">04</p>
+        <h3>Evaluate &amp; iterate</h3>
+        <p>Audit real calls and transcripts against baseline metrics, diagnose regressions, and A/B test flow changes before they ship wider.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack" class="wrap wrap-wide">
+    <h2 class="reveal"><span class="mark"></span>Stack, by signal path</h2>
+    <p class="section-intro reveal">The tools I reach for follow the shape of a voice pipeline &mdash; audio in, meaning out, and everything that keeps it reliable in between.</p>
+
+    <div class="pipeline reveal">
+      <div class="pipeline-stage">
+        <p class="tech-label mono">Telephony</p>
+        <div class="chips"><span>SIP</span><span>DID</span><span>VoIP</span><span>Plivo</span><span>Exotel</span><span>Vapi</span></div>
+      </div>
+      <div class="pipeline-stage">
+        <p class="tech-label mono">Speech</p>
+        <div class="chips"><span>Deepgram</span><span>Whisper</span><span>ElevenLabs</span><span>Cartesia</span></div>
+      </div>
+      <div class="pipeline-stage">
+        <p class="tech-label mono">Orchestration &amp; RAG</p>
+        <div class="chips"><span>LangChain</span><span>LlamaIndex</span><span>RAG</span><span>Ollama</span><span>OpenRouter</span><span>Dialogflow</span><span>Pipecat</span><span>Pipeshift</span></div>
+      </div>
+      <div class="pipeline-stage">
+        <p class="tech-label mono">Data &amp; infra</p>
+        <div class="chips"><span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>ChromaDB</span><span>Pinecone</span><span>AWS</span><span>GCP</span><span>Azure</span><span>Temporal</span></div>
+      </div>
+    </div>
+
+    <div class="core-eng reveal">
+      <p class="tech-label mono">Core engineering</p>
+      <div class="chips"><span>Python</span><span>SQL</span><span>C</span><span>C++</span><span>Java</span><span>JavaScript</span><span>Rust</span><span>Django</span><span>FastAPI</span><span>Git / GitHub</span></div>
+    </div>
+  </section>
+
+  <section id="experience" class="wrap wrap-wide">
+    <h2 class="reveal"><span class="mark"></span>Experience</h2>
+    <ol class="timeline reveal">
       <li>
-        <div class="tl-date"><span class="mono">Oct 2025 — Present</span></div>
+        <div class="tl-date mono">Oct 2025 — Present</div>
         <div class="tl-body">
           <h3>Conversational AI Engineer</h3>
-          <p class="tl-org">Arrowhead, Bengaluru</p>
-          <ul>
-            <li>Build production, ultra-low-latency voice agents using deterministic conversation flows and structured prompts for regulated industries &mdash; BFSI, insurance, fintech, wealthtech, real estate &mdash; reaching up to 45% higher conversion than human agents.</li>
-            <li>Integrate agents with client CRMs, telephony, webhooks, and internal APIs, including live hand-off to a human agent over SIP.</li>
-            <li>Audit calls and transcripts against baseline metrics, diagnose regressions in objection-handling and latency, and run A/B tests across flow versions.</li>
-            <li>Travel onsite to gather requirements directly from clients and translate their workflows into deployable conversation flows.</li>
-          </ul>
+          <p class="tl-org">Arrowhead, Bengaluru &middot; see case study above</p>
         </div>
       </li>
       <li>
-        <div class="tl-date"><span class="mono">May 2024 — Oct 2025</span></div>
+        <div class="tl-date mono">May 2024 — Oct 2025</div>
         <div class="tl-body">
           <h3>AI Engineer</h3>
-          <p class="tl-org">AntLabs, Remote</p>
-          <ul>
-            <li>Led three AI projects end to end &mdash; PRDs, system architecture, hiring, vendor negotiation, and client delivery.</li>
-            <li>Built a RAG-based chatbot for complex PDF queries, reaching 90&ndash;95% accuracy, a 65% improvement over the legacy system.</li>
-            <li>Automated SKU attribute extraction with the Gemini API, OCR, and Playwright, cutting processing time by 80%.</li>
-            <li>Designed an AWS SQS pipeline for real-time image processing, increasing throughput 5x.</li>
-          </ul>
+          <p class="tl-org">AntLabs, Remote &middot; see case study above</p>
+        </div>
+      </li>
+      <li>
+        <div class="tl-date mono">Dec 2020 — Jun 2024</div>
+        <div class="tl-body">
+          <h3>B.E., Computer Science &amp; Engineering</h3>
+          <p class="tl-org">KLE Technological University &middot; Grade A</p>
+          <p class="coursework">AI &amp; machine learning, generative AI, AI agents, MLOps, OOP, DBMS, computer networking, data structures, operating systems, web development.</p>
         </div>
       </li>
     </ol>
   </section>
 
-  <section id="technologies" aria-labelledby="tech-h">
-    <h2 id="tech-h"><span class="mark"></span>Technologies</h2>
-
-    <div class="tech-groups">
-      <div class="tech-group">
-        <p class="tech-label">Voice AI</p>
-        <div class="chips">
-          <span>ElevenLabs</span><span>Cartesia</span><span>Deepgram</span><span>Whisper</span>
-          <span>OpenRouter</span><span>Plivo</span><span>Vapi</span><span>Exotel</span>
-          <span>Dialogflow</span><span>Pipecat</span><span>Pipeshift</span><span>SIP</span>
-          <span>DID</span><span>VoIP</span>
-        </div>
-      </div>
-      <div class="tech-group">
-        <p class="tech-label">AI agents &amp; tooling</p>
-        <div class="chips">
-          <span>RAG</span><span>LangChain</span><span>LlamaIndex</span><span>Ollama</span>
-        </div>
-      </div>
-      <div class="tech-group">
-        <p class="tech-label">Languages</p>
-        <div class="chips">
-          <span>Python</span><span>SQL</span><span>C</span><span>C++</span><span>Java</span>
-          <span>JavaScript</span><span>Rust</span>
-        </div>
-      </div>
-      <div class="tech-group">
-        <p class="tech-label">Frameworks</p>
-        <div class="chips">
-          <span>Django</span><span>FastAPI</span><span>Git / GitHub</span>
-        </div>
-      </div>
-      <div class="tech-group">
-        <p class="tech-label">Databases</p>
-        <div class="chips">
-          <span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span><span>ChromaDB</span><span>Pinecone</span>
-        </div>
-      </div>
-      <div class="tech-group">
-        <p class="tech-label">Cloud &amp; orchestration</p>
-        <div class="chips">
-          <span>AWS</span><span>GCP</span><span>Azure</span><span>Temporal</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="education" aria-labelledby="edu-h">
-    <h2 id="edu-h"><span class="mark"></span>Education</h2>
-    <div class="edu-row">
-      <div class="tl-date"><span class="mono">Dec 2020 — Jun 2024</span></div>
-      <div class="tl-body">
-        <h3>B.E., Computer Science &amp; Engineering</h3>
-        <p class="tl-org">KLE Technological University &middot; Grade A</p>
-        <p class="coursework">Artificial intelligence &amp; machine learning, generative AI, AI agents, MLOps, OOP, DBMS, computer networking, data structures, operating systems, web development.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="publications" aria-labelledby="pub-h">
-    <h2 id="pub-h"><span class="mark"></span>Publications</h2>
-    <ul class="pub-list">
+  <section id="publications" class="wrap wrap-wide">
+    <h2 class="reveal"><span class="mark"></span>Publications</h2>
+    <ul class="pub-list reveal">
       <li>
-        <span class="pub-title">Panoptic driving perception using deep learning techniques</span>
+        <a class="pub-title" href="https://link.springer.com/chapter/10.1007/978-981-99-5792-7_12" target="_blank" rel="noopener">Panoptic driving perception using deep learning techniques</a>
         <span class="mono pub-date">Oct 2023</span>
       </li>
       <li>
-        <span class="pub-title">Vision-based optical character recognition using YOLOv5 and EasyOCR</span>
+        <a class="pub-title" href="https://ieeexplore.ieee.org/document/10126305/" target="_blank" rel="noopener">Vision-based optical character recognition using YOLOv5 and EasyOCR</a>
         <span class="mono pub-date">Apr 2023</span>
       </li>
     </ul>
   </section>
 
+  <section id="contact" class="wrap wrap-wide">
+    <h2 class="reveal"><span class="mark"></span>Get in touch</h2>
+    <div class="contact-grid reveal">
+      <div class="contact-intro">
+        <h3>Let's talk about your voice AI problem.</h3>
+        <p>Fill this in and it lands straight in my inbox &mdash; or reach me directly.</p>
+        <nav class="links contact-direct">
+          <a href="mailto:shashankagasimani2@gmail.com">shashankagasimani2@gmail.com</a>
+          <a href="https://www.linkedin.com/in/shashankagasimani/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/styloo007/" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+      </div>
+
+      <form
+        id="contact-form"
+        class="contact-form"
+        action="https://formspree.io/f/meaqldqo"
+        method="POST"
+        autocomplete="off"
+      >
+        <div class="field">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="5" required></textarea>
+        </div>
+        <!-- honeypot: hidden from real users, catches simple bots -->
+        <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off">
+        <!-- Formspree redirects here after a successful submission; value is set by script.js -->
+        <input type="hidden" name="_next" id="cf-next" value="">
+
+        <button type="submit" class="btn-submit">
+          <span class="btn-label">Send message</span>
+        </button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
 </main>
 
-<footer class="wrap" id="contact">
-  <div class="footer-inner">
-    <p>Based in Bengaluru, India. Open to conversations about voice AI and forward-deployed engineering roles.</p>
-    <nav class="links">
-      <a href="mailto:shashankagasimani2@gmail.com">shashankagasimani2@gmail.com</a>
-      <a href="https://www.linkedin.com/in/shashankagasimani/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/styloo007/" target="_blank" rel="noopener">GitHub</a>
-    </nav>
-    <p class="fine-print">&copy; <span id="year"></span> Shashank Agasimani</p>
+<footer>
+  <div class="wrap footer-inner">
+    <p class="fine-print">&copy; <span id="year"></span> Shashank Agasimani &middot; Bengaluru, India</p>
   </div>
 </footer>
 
