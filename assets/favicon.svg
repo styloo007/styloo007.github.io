@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Shashank Agasimani favicon">
+  <defs>
+    <clipPath id="clip">
+      <rect x="8" y="8" width="112" height="112" rx="22"/>
+    </clipPath>
+  </defs>
+
+  <rect width="128" height="128" rx="24" fill="#0b0d12"/>
+  <image href="WhatsApp Image 2026-07-25 at 23.04.38.jpeg" x="8" y="8" width="112" height="112" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip)"/>
+  <rect x="8" y="8" width="112" height="112" rx="22" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="2"/>
+</svg>
