@@ -59,14 +59,19 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ---------- scroll reveal ---------- */
+/* ---------- scroll reveal ----------
+   Fail-safe by design: .reveal elements are visible by default. JS adds
+   .pending (which hides them) only after confirming it can actually animate
+   them back in via IntersectionObserver. If JS fails, is blocked, or the
+   API isn't supported, content simply stays visible — it never depends on
+   JS succeeding to be seen. */
 
-.reveal {
+.reveal.pending {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.reveal.in-view { opacity: 1; transform: translateY(0); }
+.reveal.pending.in-view { opacity: 1; transform: translateY(0); }
 
 /* ---------- top nav ---------- */
 
@@ -130,11 +135,33 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .hero .links a { font-family: var(--font-mono); font-size: 14px; padding-bottom: 2px; }
 
 .hero-visual { display: flex; justify-content: center; }
-#wave { width: 100%; max-width: 420px; height: auto; }
+.photo-frame {
+  position: relative;
+  width: 100%; max-width: 340px;
+  aspect-ratio: 4 / 5;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px rgba(242,169,60,0.08), 0 24px 60px -20px rgba(0,0,0,0.6);
+}
+.photo-frame img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+.hero-wave {
+  display: block;
+  width: 100%; max-width: 320px;
+  height: 40px;
+  margin-top: 32px;
+  opacity: 0.85;
+}
 
 @media (max-width: 860px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-visual { order: -1; max-width: 280px; margin: 0 auto 8px; }
+  .hero-visual { order: -1; max-width: 220px; margin: 0 auto 8px; }
+  .photo-frame { max-width: 220px; }
+  .hero-wave { margin-left: auto; margin-right: auto; }
 }
 
 /* ---------- stats band ---------- */
@@ -323,9 +350,21 @@ h3 { font-family: var(--font-display); font-weight: 600; font-size: 19px; margin
 .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 .btn-submit:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; }
 
-.form-status { margin: 0; font-size: 14px; min-height: 1.4em; }
-.form-status.success { color: var(--accent-2); }
-.form-status.error { color: #e2745a; }
+.form-status { margin: 0; font-size: 14px; display: none; }
+.form-status[data-fs-active] { display: block; }
+.form-status.success { color: var(--accent-2); margin-top: 16px; }
+.form-status.error { color: #e2745a; margin-top: 16px; }
+
+.field-error {
+  display: none;
+  font-size: 12.5px;
+  color: #e2745a;
+}
+.field-error[data-fs-active] { display: block; }
+
+.field input[aria-invalid="true"], .field textarea[aria-invalid="true"] {
+  border-color: #e2745a;
+}
 
 @media (max-width: 780px) {
   .contact-grid { grid-template-columns: 1fr; }
@@ -338,6 +377,22 @@ footer { padding: 40px 28px; background: var(--bg-soft); }
 .fine-print { color: var(--text-dim); font-size: 13px; margin: 0; }
 
 /* ---------- responsive ---------- */
+
+/* Fallback for browsers that don't support flexbox `gap` (all current
+   browsers do — this only protects against an unknown/older rendering
+   environment silently collapsing spacing to zero). */
+@supports not (gap: 1px) {
+  .topnav-inner > * + * { margin-left: 16px; }
+  .nav-links a + a { margin-left: 26px; }
+  .links:not(.contact-direct) a + a { margin-left: 26px; }
+  .contact-direct a + a { margin-top: 12px; }
+  .chips span + span { margin-left: 8px; margin-top: 8px; }
+  h2 .mark { margin-right: 12px; }
+  .contact-form .field + .field,
+  .contact-form .field + input,
+  .contact-form .field + button { margin-top: 18px; }
+  .field label + input, .field label + textarea { margin-top: 8px; }
+}
 
 @media (max-width: 600px) {
   .hero { padding: 56px 0 40px; }

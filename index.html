@@ -33,17 +33,19 @@
   <div class="wrap wrap-wide hero-grid">
     <div class="hero-copy">
       <p class="eyebrow mono">Bengaluru, India — Forward Deployed Engineer</p>
-      <h1 class="reveal">Voice AI that survives<br>contact with production.</h1>
-      <p class="lede reveal">I take voice AI systems from a client's first requirement to production — conversation flows, live infrastructure integration, and the evals that keep them accurate under regulation and scale.</p>
-      <nav class="links reveal">
+      <h1>Voice AI that survives<br>contact with production.</h1>
+      <p class="lede">I take voice AI systems from a client's first requirement to production — conversation flows, live infrastructure integration, and the evals that keep them accurate under regulation and scale.</p>
+      <nav class="links">
         <a href="mailto:shashankagasimani2@gmail.com">Email</a>
         <a href="https://www.linkedin.com/in/shashankagasimani/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/styloo007/" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://topmate.io/shashank_agasimani" target="_blank" rel="noopener">Topmate</a>
       </nav>
+      <canvas id="wave" width="420" height="46" class="hero-wave" aria-hidden="true"></canvas>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <canvas id="wave" width="440" height="260"></canvas>
+    <div class="hero-visual">
+      <div class="photo-frame">
+        <img src="assets/profile.jpg" alt="Portrait of Shashank Agasimani" width="900" height="1125">
+      </div>
     </div>
   </div>
 </header>
@@ -211,7 +213,7 @@
       <li>
         <div class="tl-date mono">May 2024 — Oct 2025</div>
         <div class="tl-body">
-          <h3>AI Engineer</h3>
+          <h3>Forward Deployed Engineer</h3>
           <p class="tl-org">AntLabs, Remote &middot; see case study above</p>
         </div>
       </li>
@@ -249,7 +251,7 @@
         <nav class="links contact-direct">
           <a href="mailto:shashankagasimani2@gmail.com">shashankagasimani2@gmail.com</a>
           <a href="https://www.linkedin.com/in/shashankagasimani/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://topmate.io/shashank_agasimani" target="_blank" rel="noopener">Topmate</a>
+          <a href="https://github.com/styloo007/" target="_blank" rel="noopener">GitHub</a>
         </nav>
       </div>
 
@@ -262,25 +264,29 @@
       >
         <div class="field">
           <label for="cf-name">Name</label>
-          <input type="text" id="cf-name" name="name" required>
+          <input type="text" id="cf-name" name="name" data-fs-field required>
+          <span data-fs-error="name" class="field-error"></span>
         </div>
         <div class="field">
           <label for="cf-email">Email</label>
-          <input type="email" id="cf-email" name="email" required>
+          <input type="email" id="cf-email" name="email" data-fs-field required>
+          <span data-fs-error="email" class="field-error"></span>
         </div>
         <div class="field">
           <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" rows="5" required></textarea>
+          <textarea id="cf-message" name="message" data-fs-field rows="5" required></textarea>
+          <span data-fs-error="message" class="field-error"></span>
         </div>
-        <!-- honeypot: hidden from real users, catches simple bots -->
+        <!-- honeypot: hidden from real users; Formspree silently discards
+             submissions where this is filled in, no JS needed -->
         <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off">
-        <!-- Formspree redirects here after a successful submission; value is set by script.js -->
-        <input type="hidden" name="_next" id="cf-next" value="">
 
-        <button type="submit" class="btn-submit">
+        <button type="submit" class="btn-submit" data-fs-submit-btn>
           <span class="btn-label">Send message</span>
         </button>
-        <p class="form-status" role="status" aria-live="polite"></p>
+
+        <div data-fs-success class="form-status success" role="status" aria-live="polite"></div>
+        <div data-fs-error class="form-status error" role="status" aria-live="polite"></div>
       </form>
     </div>
   </section>
@@ -294,5 +300,18 @@
 </footer>
 
 <script src="script.js"></script>
+
+<!-- Formspree's official AJAX library: submits the form without leaving
+     the page. Works on the free plan (unlike the old _next redirect field,
+     which Formspree now restricts to paid plans). -->
+<script>
+  window.formspree =
+    window.formspree ||
+    function () {
+      (formspree.q = formspree.q || []).push(arguments);
+    };
+  formspree('initForm', { formElement: '#contact-form', formId: 'meaqldqo' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
