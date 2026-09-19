@@ -102,9 +102,9 @@ try {
       });
     }
 
-    var accent = '#f2a93c';
-    var accent2 = '#5fd0c0';
-    var dim = 'rgba(143,150,168,0.45)';
+    var accent = '#7c3aed';
+    var accent2 = '#ec4899';
+    var dim = 'rgba(124,58,237,0.18)';
 
     var draw = function (t) {
       ctx.clearRect(0, 0, W, H);
