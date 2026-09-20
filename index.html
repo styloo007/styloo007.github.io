@@ -7,7 +7,7 @@
 <meta name="description" content="Shashank Agasimani builds production voice AI systems for regulated industries — from client requirement to deployed conversation flows.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,49 +27,50 @@
 </nav>
 
 <header class="hero" id="top">
-  <div class="orb orb-1" aria-hidden="true"></div>
-  <div class="orb orb-2" aria-hidden="true"></div>
-  <div class="orb orb-3" aria-hidden="true"></div>
-  <div class="wrap wrap-wide hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow">Bengaluru, India — Forward Deployed Engineer</p>
-      <h1><span class="grad-text">Voice AI that survives<br>contact with production.</span></h1>
-      <p class="lede">I take voice AI systems from a client's first requirement to production — conversation flows, live infrastructure integration, and the evals that keep them accurate under regulation and scale.</p>
-      <div class="hero-cta">
-        <a href="#contact" class="btn-primary">Get in touch</a>
-        <nav class="links">
-          <a href="mailto:shashankagasimani2@gmail.com">Email</a>
-          <a href="https://www.linkedin.com/in/shashankagasimani/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/styloo007/" target="_blank" rel="noopener">GitHub</a>
-        </nav>
-      </div>
-      <canvas id="wave" width="420" height="46" class="hero-wave" aria-hidden="true"></canvas>
-    </div>
-    <div class="hero-visual">
-      <div class="photo-frame">
-        <img src="assets/profile.jpg" alt="Portrait of Shashank Agasimani" width="900" height="1125">
+  <div class="wrap wrap-wide">
+    <div class="byline">
+      <img class="avatar" src="assets/profile.jpeg" alt="Shashank Agasimani" width="112" height="112">
+      <div class="byline-text">
+        <p class="byline-name">Shashank Agasimani</p>
+        <p class="byline-loc"><span class="eyebrow-dot"></span>Bengaluru, India — Forward Deployed Engineer</p>
       </div>
     </div>
+
+    <h1>Voice AI that <em>survives</em> contact with production.</h1>
+    <p class="lede">I take voice AI systems from a client's first requirement to production — conversation flows, live infrastructure integration, and the evals that keep them accurate under regulation and scale.</p>
+
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Get in touch</a>
+      <nav class="links">
+        <a href="mailto:shashankagasimani2@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/shashankagasimani/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/styloo007/" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://topmate.io/shashank_agasimani" target="_blank" rel="noopener">Topmate</a>
+      </nav>
+    </div>
+    <canvas id="wave" width="420" height="46" class="hero-wave" aria-hidden="true"></canvas>
   </div>
 </header>
 
 <section class="stats-band reveal" aria-label="Impact at a glance">
-  <div class="wrap wrap-wide stats-grid">
-    <div class="stat">
+  <div class="wrap wrap-wide">
+    <div class="stat stat-featured">
       <p class="stat-num" data-target="45" data-suffix="%">0%</p>
-      <p class="stat-label">higher conversion vs.<br>human agents</p>
+      <p class="stat-label">Higher conversion than human agents, from deterministic voice flows built for regulated, high-stakes calls.</p>
     </div>
-    <div class="stat">
-      <p class="stat-num" data-target="95" data-suffix="%">0%</p>
-      <p class="stat-label">peak accuracy on<br>RAG-based retrieval</p>
-    </div>
-    <div class="stat">
-      <p class="stat-num" data-target="80" data-suffix="%">0%</p>
-      <p class="stat-label">less processing time,<br>SKU extraction</p>
-    </div>
-    <div class="stat">
-      <p class="stat-num" data-target="5" data-suffix="&times;">0&times;</p>
-      <p class="stat-label">image-pipeline<br>throughput</p>
+    <div class="stats-minor">
+      <div class="stat">
+        <p class="stat-num" data-target="95" data-suffix="%">0%</p>
+        <p class="stat-label">peak accuracy, RAG retrieval</p>
+      </div>
+      <div class="stat">
+        <p class="stat-num" data-target="80" data-suffix="%">0%</p>
+        <p class="stat-label">less processing time, SKU extraction</p>
+      </div>
+      <div class="stat">
+        <p class="stat-num" data-target="5" data-suffix="&times;">0&times;</p>
+        <p class="stat-label">image-pipeline throughput</p>
+      </div>
     </div>
   </div>
 </section>
@@ -80,10 +81,13 @@
     <h2 class="reveal"><span class="mark"></span>Selected work</h2>
 
     <article class="case reveal">
-      <div class="case-head">
-        <p class="case-kicker mono">Arrowhead &middot; Oct 2025 — Present</p>
-        <h3>Voice AI for regulated, high-stakes calls</h3>
-        <p class="case-summary">Banks, insurers, and wealth platforms can't hand a customer call to a model that might improvise. I build deterministic, state-driven voice agents — with the conversation logic, latency budget, and live infrastructure to run those calls in production.</p>
+      <p class="case-kicker mono">Arrowhead &middot; Oct 2025 — Present</p>
+      <h3>Voice AI for regulated, high-stakes calls</h3>
+      <p class="case-summary">Banks, insurers, and wealth platforms can't hand a customer call to a model that might improvise. I build deterministic, state-driven voice agents — with the conversation logic, latency budget, and live infrastructure to run those calls in production.</p>
+
+      <div class="case-pull">
+        <span class="pull-num">45%</span>
+        <span class="pull-text">higher conversion than human agents across BFSI, insurance, fintech, wealthtech, and real estate deployments.</span>
       </div>
 
       <div class="case-diagram" role="img" aria-label="Pipeline: caller connects over telephony, speech is transcribed, routed through a deterministic conversation engine, synthesized back to speech, and either resolved or handed to a human agent via CRM">
@@ -91,7 +95,7 @@
           <g class="flow-line">
             <line x1="90" y1="70" x2="810" y2="70"/>
           </g>
-          <g class="nodes" font-family="IBM Plex Mono, monospace" font-size="13">
+          <g class="nodes" font-family="JetBrains Mono, monospace" font-size="13">
             <g class="node"><rect x="10" y="40" width="140" height="60" rx="4"/><text x="80" y="65" text-anchor="middle">Caller</text><text x="80" y="83" text-anchor="middle" class="sub">SIP / DID</text></g>
             <g class="node"><rect x="195" y="40" width="140" height="60" rx="4"/><text x="265" y="65" text-anchor="middle">Speech to text</text><text x="265" y="83" text-anchor="middle" class="sub">Deepgram / Whisper</text></g>
             <g class="node accent-node"><rect x="380" y="35" width="150" height="70" rx="4"/><text x="455" y="60" text-anchor="middle">Conversation</text><text x="455" y="76" text-anchor="middle">engine</text><text x="455" y="94" text-anchor="middle" class="sub">state flow + prompts</text></g>
@@ -102,30 +106,25 @@
       </div>
 
       <ul class="case-points">
-        <li>Deterministic, state-driven flows and structured prompts for BFSI, insurance, fintech, wealthtech, and real estate clients — reaching up to <strong>45% higher conversion</strong> than human agents.</li>
         <li>Integrated with client CRMs, telephony, webhooks, and internal APIs, including live hand-off to a human agent over SIP.</li>
         <li>Audited calls and transcripts against baseline metrics, diagnosed regressions in objection-handling and latency, and ran A/B tests across flow versions.</li>
         <li>Traveled onsite to gather requirements directly from clients and translate their workflows into deployable conversation flows.</li>
       </ul>
 
-      <div class="chips case-tags">
-        <span>Deterministic flows</span><span>SIP / telephony</span><span>Live QA & evals</span><span>Regional-language QA</span>
-      </div>
+      <p class="case-built mono">Built with: deterministic flows &middot; SIP / telephony &middot; live QA &amp; evals &middot; regional-language QA</p>
     </article>
 
     <article class="case reveal">
-      <div class="case-head">
-        <p class="case-kicker mono">AntLabs &middot; May 2024 — Oct 2025</p>
-        <h3>High-precision RAG for complex PDF queries</h3>
-        <p class="case-summary">Legacy keyword search couldn't reliably answer questions against dense, unstructured PDFs. I designed a retrieval pipeline built for precision, then re-used the same systems instinct on two adjacent bottlenecks: catalog data entry and image throughput.</p>
-      </div>
+      <p class="case-kicker mono">AntLabs &middot; May 2024 — Oct 2025</p>
+      <h3>High-precision RAG for complex PDF queries</h3>
+      <p class="case-summary">Legacy keyword search couldn't reliably answer questions against dense, unstructured PDFs. I designed a retrieval pipeline built for precision, then re-used the same systems instinct on two adjacent bottlenecks: catalog data entry and image throughput.</p>
 
       <div class="case-diagram" role="img" aria-label="Pipeline: PDF documents are chunked and embedded, stored in a vector database, retrieved on query, and passed to the LLM for a grounded answer">
         <svg viewBox="0 0 900 140" xmlns="http://www.w3.org/2000/svg">
           <g class="flow-line">
             <line x1="90" y1="70" x2="810" y2="70"/>
           </g>
-          <g class="nodes" font-family="IBM Plex Mono, monospace" font-size="13">
+          <g class="nodes" font-family="JetBrains Mono, monospace" font-size="13">
             <g class="node"><rect x="10" y="40" width="140" height="60" rx="4"/><text x="80" y="65" text-anchor="middle">PDF corpus</text><text x="80" y="83" text-anchor="middle" class="sub">client documents</text></g>
             <g class="node"><rect x="195" y="40" width="140" height="60" rx="4"/><text x="265" y="65" text-anchor="middle">Chunk + embed</text><text x="265" y="83" text-anchor="middle" class="sub">LangChain</text></g>
             <g class="node accent-node"><rect x="380" y="35" width="150" height="70" rx="4"/><text x="455" y="60" text-anchor="middle">Vector store</text><text x="455" y="76" text-anchor="middle">+ retrieval</text><text x="455" y="94" text-anchor="middle" class="sub">Pinecone / ChromaDB</text></g>
@@ -136,40 +135,50 @@
       </div>
 
       <ul class="case-points">
-        <li>Reached <strong>90&ndash;95% accuracy</strong>, a 65% improvement over the legacy keyword system.</li>
         <li>Led three AI projects end to end &mdash; PRDs, system architecture, hiring, vendor negotiation, and client delivery.</li>
         <li>Automated SKU attribute extraction with the Gemini API, OCR, and Playwright, cutting processing time by 80%.</li>
         <li>Designed an AWS SQS pipeline for real-time image processing, increasing throughput 5&times;.</li>
       </ul>
 
-      <div class="chips case-tags">
-        <span>RAG</span><span>Vector search</span><span>OCR automation</span><span>AWS SQS</span>
+      <div class="case-pull">
+        <span class="pull-num">90&ndash;95%</span>
+        <span class="pull-text">query accuracy, a 65% improvement over the legacy keyword system it replaced.</span>
       </div>
+
+      <p class="case-built mono">Built with: RAG &middot; vector search &middot; OCR automation &middot; AWS SQS</p>
     </article>
   </section>
 
   <section id="process" class="wrap wrap-wide">
     <h2 class="reveal"><span class="mark"></span>How I work</h2>
-    <div class="process-grid">
-      <div class="process-step reveal">
-        <p class="process-num mono">01</p>
-        <h3>Discover onsite</h3>
-        <p>Sit with the client's team, watch the real workflow, and find where a scripted human process becomes a deterministic conversation flow.</p>
+    <div class="process-list">
+      <div class="process-row reveal">
+        <span class="process-num">01</span>
+        <div class="process-copy">
+          <h3>Discover onsite</h3>
+          <p>Sit with the client's team, watch the real workflow, and find where a scripted human process becomes a deterministic conversation flow.</p>
+        </div>
       </div>
-      <div class="process-step reveal">
-        <p class="process-num mono">02</p>
-        <h3>Design the flow</h3>
-        <p>State-driven conversation logic and structured prompts — built for the failure modes of a regulated, high-stakes call, not a demo.</p>
+      <div class="process-row reveal">
+        <span class="process-num">02</span>
+        <div class="process-copy">
+          <h3>Design the flow</h3>
+          <p>State-driven conversation logic and structured prompts — built for the failure modes of a regulated, high-stakes call, not a demo.</p>
+        </div>
       </div>
-      <div class="process-step reveal">
-        <p class="process-num mono">03</p>
-        <h3>Integrate live</h3>
-        <p>Wire into the client's actual stack — CRM, telephony, webhooks, internal APIs — including hand-off to a human agent when needed.</p>
+      <div class="process-row reveal">
+        <span class="process-num">03</span>
+        <div class="process-copy">
+          <h3>Integrate live</h3>
+          <p>Wire into the client's actual stack — CRM, telephony, webhooks, internal APIs — including hand-off to a human agent when needed.</p>
+        </div>
       </div>
-      <div class="process-step reveal">
-        <p class="process-num mono">04</p>
-        <h3>Evaluate &amp; iterate</h3>
-        <p>Audit real calls and transcripts against baseline metrics, diagnose regressions, and A/B test flow changes before they ship wider.</p>
+      <div class="process-row reveal">
+        <span class="process-num">04</span>
+        <div class="process-copy">
+          <h3>Evaluate &amp; iterate</h3>
+          <p>Audit real calls and transcripts against baseline metrics, diagnose regressions, and A/B test flow changes before they ship wider.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -178,28 +187,27 @@
     <h2 class="reveal"><span class="mark"></span>Stack, by signal path</h2>
     <p class="section-intro reveal">The tools I reach for follow the shape of a voice pipeline &mdash; audio in, meaning out, and everything that keeps it reliable in between.</p>
 
-    <div class="pipeline reveal">
-      <div class="pipeline-stage">
+    <div class="stack-list reveal">
+      <div class="stack-row">
         <p class="tech-label mono">Telephony</p>
         <div class="chips"><span>SIP</span><span>DID</span><span>VoIP</span><span>Plivo</span><span>Exotel</span><span>Vapi</span></div>
       </div>
-      <div class="pipeline-stage">
+      <div class="stack-row">
         <p class="tech-label mono">Speech</p>
         <div class="chips"><span>Deepgram</span><span>Whisper</span><span>ElevenLabs</span><span>Cartesia</span></div>
       </div>
-      <div class="pipeline-stage">
+      <div class="stack-row">
         <p class="tech-label mono">Orchestration &amp; RAG</p>
         <div class="chips"><span>LangChain</span><span>LlamaIndex</span><span>RAG</span><span>Ollama</span><span>OpenRouter</span><span>Dialogflow</span><span>Pipecat</span><span>Pipeshift</span></div>
       </div>
-      <div class="pipeline-stage">
+      <div class="stack-row">
         <p class="tech-label mono">Data &amp; infra</p>
         <div class="chips"><span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>ChromaDB</span><span>Pinecone</span><span>AWS</span><span>GCP</span><span>Azure</span><span>Temporal</span></div>
       </div>
-    </div>
-
-    <div class="core-eng reveal">
-      <p class="tech-label mono">Core engineering</p>
-      <div class="chips"><span>Python</span><span>SQL</span><span>C</span><span>C++</span><span>Java</span><span>JavaScript</span><span>Rust</span><span>Django</span><span>FastAPI</span><span>Git / GitHub</span></div>
+      <div class="stack-row">
+        <p class="tech-label mono">Core engineering</p>
+        <div class="chips"><span>Python</span><span>SQL</span><span>C</span><span>C++</span><span>Java</span><span>JavaScript</span><span>Rust</span><span>Django</span><span>FastAPI</span><span>Git / GitHub</span></div>
+      </div>
     </div>
   </section>
 
@@ -255,6 +263,7 @@
           <a href="mailto:shashankagasimani2@gmail.com">shashankagasimani2@gmail.com</a>
           <a href="https://www.linkedin.com/in/shashankagasimani/" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://github.com/styloo007/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://topmate.io/shashank_agasimani" target="_blank" rel="noopener">Topmate</a>
         </nav>
       </div>
 
