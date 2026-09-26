@@ -320,8 +320,8 @@ h2 {
 }
 
 .avatar {
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
@@ -368,7 +368,7 @@ h2 {
 
 @media (max-width: 640px) {
   .byline { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .avatar { width: 70px; height: 70px; }
+  .avatar { width: 210px; height: 210px; }
   .byline-name { font-size: 22px; }
 }
 
