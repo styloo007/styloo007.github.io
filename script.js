@@ -21,7 +21,7 @@ var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 var hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
 /* ============================================================
-   Voice orb — canvas circular spectrum in the hero
+   Voice orb — canvas circular spectrum
    ============================================================ */
 (function () {
   var canvas = document.getElementById('orb');
@@ -75,14 +75,12 @@ var hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').mat
       ctx.stroke();
     }
 
-    // inner ring
     ctx.strokeStyle = 'rgba(139, 124, 246, 0.14)';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.arc(cx, cy, radius, 0, Math.PI * 2);
     ctx.stroke();
 
-    // outer ring
     ctx.strokeStyle = 'rgba(139, 124, 246, 0.06)';
     ctx.beginPath();
     ctx.arc(cx, cy, radius + 64, 0, Math.PI * 2);
@@ -100,7 +98,6 @@ var hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').mat
 
   resize();
   if (reduceMotion) {
-    // draw a single static frame
     draw(0);
   } else {
     requestAnimationFrame(draw);
@@ -253,11 +250,10 @@ try {
 } catch (e) { /* static fallback */ }
 
 /* ============================================================
-   Flow animations — sequential node trace on loop
+   Flow animations — sequential node trace
    ============================================================ */
 (function () {
   if (reduceMotion) {
-    // just highlight all nodes statically
     document.querySelectorAll('[data-flow]').forEach(function (wrap) {
       wrap.querySelectorAll('.sm-node').forEach(function (n) { n.classList.add('active'); });
       wrap.querySelectorAll('.sm-link').forEach(function (l) { l.classList.add('traced'); });
