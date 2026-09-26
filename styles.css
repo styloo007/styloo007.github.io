@@ -307,35 +307,39 @@ h2 {
 
 .hero .wrap { position: relative; z-index: 1; width: 100%; }
 
+.hero-grid {
+  display: grid;
+  grid-template-columns: 405px minmax(0, 1fr);
+  align-items: start;
+  gap: 64px;
+}
+
 /* ============================================================
    Byline
    ============================================================ */
 .byline {
   display: flex;
-  align-items: center;
-  gap: 24px;
-  margin-bottom: 64px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 0;
   opacity: 0;
   animation: fadeUp 0.8s var(--ease-out) 0.1s forwards;
 }
 
 .avatar {
   width: 405px;
-  height: 405px;
+  height: auto;
   border-radius: 0;
-  object-fit: cover;
-  object-position: center;
   border: 1px solid var(--border);
   filter: grayscale(10%) contrast(1.04);
   flex: none;
-  box-shadow:
-    0 0 0 5px var(--bg),
-    0 0 0 6px var(--border),
-    0 16px 40px -22px rgba(139, 124, 246, 0.35);
+  box-shadow: 0 18px 40px -24px rgba(139, 124, 246, 0.45);
 }
 
 .byline-meta {
   margin: 0;
+  padding-bottom: 0;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -367,8 +371,10 @@ h2 {
 }
 
 @media (max-width: 640px) {
-  .byline { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .avatar { width: 284px; height: 284px; }
+  .byline {
+    gap: 20px;
+  }
+  .avatar { width: 284px; height: auto; }
   .byline-name { font-size: 22px; }
 }
 
@@ -380,6 +386,10 @@ h2 {
   font-variation-settings: "opsz" 144;
   margin: 0 0 44px;
   max-width: 17ch;
+}
+.hero-copy .hero-title {
+  max-width: none;
+  font-size: clamp(44px, 5.2vw, 78px);
 }
 .hero-title .line {
   display: block;
@@ -1021,7 +1031,9 @@ footer { padding-top: 48px; padding-bottom: 48px; }
   :root { --pad-x: 24px; }
   main > section { padding-top: 88px; padding-bottom: 88px; }
   .hero { padding: 88px 0 100px; min-height: auto; }
-  .byline { margin-bottom: 48px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+  .hero-copy { order: 1; }
+  .byline { order: 2; }
   .hero-cta { gap: 24px; }
   .scroll-hint { display: none; }
 }
