@@ -337,6 +337,11 @@ h2 {
   box-shadow: 0 18px 40px -24px rgba(139, 124, 246, 0.45);
 }
 
+@media (min-width: 721px) and (max-height: 800px) {
+  .hero-grid { grid-template-columns: 345px minmax(0, 1fr); gap: 48px; }
+  .avatar { width: 345px; }
+}
+
 .byline-meta {
   margin: 0;
   padding-bottom: 0;
