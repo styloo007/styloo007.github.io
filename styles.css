@@ -17,6 +17,9 @@
   --accent-hot: #b2a5ff;
   --accent-dim: rgba(139, 124, 246, 0.14);
 
+  /* single source of truth for the horizontal inset */
+  --pad-x: 32px;
+
   --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
@@ -74,7 +77,7 @@ em { font-style: italic; color: var(--accent-hot); font-weight: inherit; }
 a:hover .arr, a:focus-visible .arr { transform: translate(2px, -2px); }
 
 /* ============================================================
-   Grain + scroll progress + cursor
+   Grain + progress + cursor
    ============================================================ */
 .grain {
   position: fixed;
@@ -102,7 +105,6 @@ a:hover .arr, a:focus-visible .arr { transform: translate(2px, -2px); }
   top: 0; left: 0; right: 0;
   height: 2px;
   z-index: 60;
-  background: transparent;
   pointer-events: none;
 }
 .scroll-progress span {
@@ -133,12 +135,48 @@ a:hover .arr, a:focus-visible .arr { transform: translate(2px, -2px); }
 }
 
 /* ============================================================
-   Layout
+   Layout primitives — the alignment contract
+   ------------------------------------------------------------
+   .wrap      → max-width + horizontal padding (var(--pad-x))
+   section.wrap → adds vertical padding, draws the divider via
+                  ::after inset by the SAME var(--pad-x), so
+                  every horizontal rule shares one axis.
    ============================================================ */
-.wrap { max-width: var(--content); margin: 0 auto; padding: 0 32px; }
+.wrap {
+  max-width: var(--content);
+  margin: 0 auto;
+  padding-left: var(--pad-x);
+  padding-right: var(--pad-x);
+}
 .wrap-wide { max-width: var(--max); }
 
-section { padding: 128px 0; border-bottom: 1px solid var(--border-soft); }
+/* Base section — no padding, no border. Real work happens on section.wrap. */
+section { position: relative; }
+
+section.wrap {
+  padding-top: 128px;
+  padding-bottom: 128px;
+}
+section.wrap::after {
+  content: '';
+  position: absolute;
+  left: var(--pad-x);
+  right: var(--pad-x);
+  bottom: 0;
+  height: 1px;
+  background: var(--border-soft);
+  pointer-events: none;
+}
+
+/* ============================================================
+   Type
+   ============================================================ */
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.025em; margin: 0; }
+h2 {
+  font-size: clamp(30px, 3.6vw, 42px);
+  line-height: 1.1;
+  font-variation-settings: "opsz" 96;
+}
 
 .section-head {
   display: grid;
@@ -159,16 +197,6 @@ section { padding: 128px 0; border-bottom: 1px solid var(--border-soft); }
   font-size: 12px;
   letter-spacing: 0.02em;
   white-space: nowrap;
-}
-
-/* ============================================================
-   Type
-   ============================================================ */
-h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.025em; margin: 0; }
-h2 {
-  font-size: clamp(30px, 3.6vw, 42px);
-  line-height: 1.1;
-  font-variation-settings: "opsz" 96;
 }
 
 .section-intro {
@@ -193,7 +221,7 @@ h2 {
 .topnav-inner {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 16px 32px;
+  padding: 16px var(--pad-x);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -217,7 +245,6 @@ h2 {
   color: var(--text-dim);
   border: none;
   font-weight: 450;
-  transition: color 0.18s var(--ease);
 }
 .nav-links a:hover { color: var(--text); }
 
@@ -234,8 +261,36 @@ h2 {
 
 @media (max-width: 780px) {
   .nav-links { display: none; }
-  .topnav-inner { padding: 14px 24px; }
+  .topnav-inner { padding-top: 14px; padding-bottom: 14px; }
 }
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  background: var(--accent);
+  color: #08080a !important;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  padding: 13px 22px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent);
+  transition: background 0.18s var(--ease), transform 0.18s var(--ease), box-shadow 0.18s var(--ease);
+}
+.btn-primary:hover, .btn-primary:focus-visible {
+  background: var(--accent-hot);
+  border-color: var(--accent-hot);
+  color: #08080a !important;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px -12px var(--accent);
+}
+.btn-primary .arr { margin-left: 0.35em; }
+.btn-primary:hover .arr { transform: translate(3px, 0); }
 
 /* ============================================================
    Hero
@@ -243,7 +298,6 @@ h2 {
 .hero {
   position: relative;
   padding: 120px 0 140px;
-  border-bottom: 1px solid var(--border-soft);
   overflow: hidden;
   min-height: 92vh;
   display: flex;
@@ -267,18 +321,20 @@ h2 {
 .byline {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 20px;
   margin-bottom: 64px;
   opacity: 0;
   animation: fadeUp 0.8s var(--ease-out) 0.1s forwards;
 }
 .avatar {
-  width: 44px; height: 44px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--border);
-  filter: grayscale(20%) contrast(1.02);
+  filter: grayscale(15%) contrast(1.04);
   flex: none;
+  box-shadow: 0 0 0 3px var(--bg), 0 0 32px -8px var(--accent-dim);
 }
 .byline-meta {
   margin: 0;
@@ -306,13 +362,13 @@ h2 {
 }
 
 .hero-title {
-  font-size: clamp(48px, 8.2vw, 116px);
+  font-size: clamp(46px, 7.6vw, 108px);
   line-height: 0.98;
   letter-spacing: -0.04em;
   font-weight: 400;
   font-variation-settings: "opsz" 144;
   margin: 0 0 44px;
-  max-width: 15ch;
+  max-width: 17ch;
 }
 .hero-title .line {
   display: block;
@@ -411,9 +467,10 @@ h2 {
    ============================================================ */
 .marquee {
   overflow: hidden;
-  border-bottom: 1px solid var(--border-soft);
   padding: 28px 0;
   background: var(--bg-elev);
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
 }
 .marquee-track {
   display: flex;
@@ -435,11 +492,24 @@ h2 {
 }
 
 /* ============================================================
-   Stats
+   Stats band — full-bleed background, content aligned to grid
    ============================================================ */
 .stats-band {
+  padding: 0;
   background: var(--bg-elev);
-  border-bottom: 1px solid var(--border-soft);
+}
+.stats-band .wrap {
+  position: relative;
+}
+.stats-band .wrap::after {
+  content: '';
+  position: absolute;
+  left: var(--pad-x);
+  right: var(--pad-x);
+  bottom: 0;
+  height: 1px;
+  background: var(--border-soft);
+  pointer-events: none;
 }
 .stats-grid {
   display: grid;
@@ -524,7 +594,7 @@ h2 {
   font-size: clamp(28px, 3.2vw, 40px);
   line-height: 1.12;
   letter-spacing: -0.025em;
-  max-width: 22ch;
+  max-width: 24ch;
   margin-bottom: 48px;
   font-variation-settings: "opsz" 96;
 }
@@ -599,7 +669,7 @@ h2 {
 }
 
 /* ============================================================
-   Flow (animated state machine)
+   Flow
    ============================================================ */
 .flow-wrap {
   margin-top: 56px;
@@ -637,8 +707,6 @@ h2 {
 .sm-link {
   stroke: var(--border);
   stroke-width: 1.5;
-  stroke-dasharray: 200;
-  stroke-dashoffset: 0;
   transition: stroke 0.4s var(--ease), stroke-dashoffset 0.5s var(--ease);
 }
 .sm-link.traced {
@@ -680,9 +748,8 @@ h2 {
 }
 
 @media (max-width: 720px) {
-  .flow-wrap { padding: 20px 16px; }
+  .flow-wrap { padding: 20px 16px; overflow-x: auto; }
   .flow { min-width: 700px; }
-  .flow-wrap { overflow-x: auto; }
 }
 
 /* ============================================================
@@ -855,7 +922,7 @@ h2 {
   font-size: clamp(26px, 3.2vw, 34px);
   line-height: 1.15;
   margin: 0 0 18px;
-  max-width: 18ch;
+  max-width: 20ch;
   font-variation-settings: "opsz" 96;
 }
 .contact-intro p {
@@ -956,7 +1023,7 @@ h2 {
 /* ============================================================
    Footer
    ============================================================ */
-footer { padding: 48px 32px; }
+footer { padding-top: 48px; padding-bottom: 48px; }
 .footer-inner {
   display: flex;
   justify-content: space-between;
@@ -1003,13 +1070,14 @@ footer { padding: 48px 32px; }
 }
 
 /* ============================================================
-   Mobile
+   Mobile — shrink the horizontal inset token so ::after
+   dividers stay aligned with content
    ============================================================ */
 @media (max-width: 720px) {
-  section { padding: 80px 0; }
+  :root { --pad-x: 24px; }
+  section.wrap { padding-top: 80px; padding-bottom: 80px; }
   .hero { padding: 88px 0 100px; min-height: auto; }
   .byline { margin-bottom: 44px; }
   .hero-cta { gap: 24px; }
-  .wrap, .wrap-wide { padding: 0 24px; }
   .scroll-hint { display: none; }
 }
